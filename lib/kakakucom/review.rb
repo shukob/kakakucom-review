@@ -15,7 +15,7 @@ module Kakakucom
       html = open(url, "r:CP932").read.encode("UTF-8")
       doc = Nokogiri::HTML.parse(html)
       doc.css(".reviewBox").each do |review_html|
-        reviews << Review::Review.new(review_html)
+        reviews << ::Kakakucom::Review::Review.new(review_html)
       end
       # go to next page
 
